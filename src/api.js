@@ -1,5 +1,4 @@
 
-import axios from 'axios';
 import express from 'express';
 import ServerlessHttp from 'serverless-http';
 const app = express();
@@ -67,9 +66,9 @@ router.get("/", (req, res) => {
 
 // Use the router to handle requests to the `/.netlify/functions/api` path
 app.use(`/.netlify/functions/api`, router);
-app.listen(PORT, () => {console.log("Server started at port 3001")});
+// app.listen(PORT, () => {console.log("Server started at port 3001")});
 // Export the app and the serverless function
-module.exports = app;
+export default app;
 
 
-module.exports.handler = ServerlessHttp(app);
+exports.handler = ServerlessHttp(app);
